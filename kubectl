@@ -1,4 +1,23 @@
 #!/bin/bash
-whereis kubectl && kubectl $@ && exit $?
-microk8s kubectl $@
-exit $?
+
+# Check if kubectl is available and functional
+if command -v kubectl >/dev/null 2>&1 && kubectl version --client >/dev/null 2>&1; then
+    kubectl "$@"
+    exit $?
+
+# Check if microk8s is available
+elif command -v microk8s >/dev/null 2>&1 && microk8s kubectl version --client >/dev/null 2>&1; then
+    microk8s kubectl "$@"
+    exit $?
+
+# Check if k3s is available
+elif command -v k3s >/dev/null 2>&1 && k3s kubectl version --client >/dev/null 2>&1; then
+    k3s kubectl "$@"
+    exit $?
+
+# If none are available, fail
+else
+    echo "No usable Kubernetes CLI found (kubectl, microk8s, or k3s)." >&2
+    exit 1
+fi
+
