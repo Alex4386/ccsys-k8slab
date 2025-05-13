@@ -13,6 +13,6 @@ spec:
         app: python-print
     spec:
       containers:
-        - name: python-cpontainer
+        - name: python-container
           image: alex4386/hello-pod:v1
 
