@@ -1,7 +1,7 @@
 #!/bin/bash
 VERSION="v1"
-if [ ! -z "$2" ]; then
-  VERSION="$2"
+if [ ! -z "$1" ]; then
+  VERSION="$1"
 fi 
 
 docker buildx build -t alex4386/hello-pod:$VERSION .
