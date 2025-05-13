@@ -1,3 +1,4 @@
 #!/bin/bash
+whereis kubectl && kubectl $@ && exit $?
 microk8s kubectl $@
-
+exit $?
