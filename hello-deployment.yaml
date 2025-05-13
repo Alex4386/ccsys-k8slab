@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-print
+  template:
+    metadata:
+      labels:
+        app: python-print
+    spec:
+      containers:
+        - name: python-cpontainer
+          image: alex4386/hello-pod:latest
+
