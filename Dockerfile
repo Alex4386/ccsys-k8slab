@@ -1,10 +1,8 @@
-FROM python:3.10.17-slim
+FROM python:3.8-slim
 
 WORKDIR /app
 
-# Copy main.py from current location
-# #DeletePython :skull:
+# Copy hello.py from current location
 COPY hello.py .
 
 CMD ["python3", "-u", "hello.py"]
-
