@@ -14,5 +14,5 @@ spec:
     spec:
       containers:
         - name: python-container
-          image: alex4386/201935044:v1
+          image: alex4386/201935044:v2
 
